@@ -7,6 +7,5 @@ class User < ApplicationRecord
   has_one :coach_record
   has_one :patient_record
 
-  validates :first_name, :last_name, :email, presence: true
-  validates :email, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 end
