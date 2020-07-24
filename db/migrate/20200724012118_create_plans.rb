@@ -5,7 +5,7 @@ class CreatePlans < ActiveRecord::Migration[6.0]
       t.text :description
       t.integer :duration
       t.text :goal_description
-      t.references :category, null: false, foreign_key: true
+      t.references :categories, null: false, foreign_key: true
 
       t.timestamps
     end
