@@ -1,5 +1,5 @@
 AllCops:
-  NewCops: enable
+  #NewCops: enable
   Exclude:
     - 'bin/**/*'
     - 'db/**/*'
@@ -39,4 +39,14 @@ Layout/LineLength:
 Style/EmptyMethod:
   Enabled: false
 Bundler/OrderedGems:
+  Enabled: false
+Lint/RaiseException:
+  Enabled: false
+Lint/StructNewOverride:
+  Enabled: false
+Style/HashEachMethods:
+  Enabled: false
+Style/HashTransformKeys:
+  Enabled: false
+Style/HashTransformValues:
   Enabled: false
