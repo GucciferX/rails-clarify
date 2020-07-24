@@ -1,8 +1,6 @@
 class Plan < ApplicationRecord
-  has_many :categories
-  validates :name, presence: true
-  validates :description, presence: true
-  validates :goal_description, presence: true
-  validates :duration, presence: true, numericality: { only_integer: true }
-  validates :number_of_consultations, presence: true, numericality: { only_integer: true }
+  # has_many :categories
+  belongs_to :category
+  validates :name, :description, :goal_description, :duration, :number_of_consultations, presence: true
+  validates :duration, :number_of_consultations, numericality: { only_integer: true }
 end
