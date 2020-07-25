@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     collection do
       get :coaches
-      get :patient
+      get :patients
     end
     resources :patient_records, only: [:new, :create, :edit, :update]
     resources :coach_records, only: [:new, :create, :edit, :update]
