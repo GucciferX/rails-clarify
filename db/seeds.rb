@@ -28,7 +28,6 @@ end
 
 puts "Seeded categories & plans database"
 
-# Seeds for users
 User.create(kind: "coach",
   email: Faker::Internet.email,
   encrypted_password: Faker::Blockchain::Bitcoin.address,
