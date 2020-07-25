@@ -27,3 +27,99 @@ end
 end
 
 puts "Seeded categories & plans database"
+
+# Seeds for users
+User.create(kind: "coach",
+  email: Faker::Internet.email,
+  encrypted_password: Faker::Blockchain::Bitcoin.address,
+  first_name: Faker::Artist.name,
+  last_name: Faker::Name.last_name,
+  phone: Faker::PhoneNumber.phone_number,
+  rating:)
+
+
+#Seeds for patients
+
+random_weight = (1...200).to_a
+
+PatientRecord.create(description: "Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  gender: [M,F].sample,
+  birth_date: Faker::Date,
+  weight: random_weight.sample,
+  height: [1.60,1.65,1.70,1.75,1.80].sample
+  medical_condition: "Asthma" )
+
+PatientRecord.create(description: "Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  gender: [M,F].sample,
+  birth_date: Faker::Date,
+  weight: random_weight.sample,
+  height: [1.60,1.65,1.70,1.75,1.80].sample
+  medical_condition: "Diabetes" )
+
+PatientRecord.create(description: "Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  gender: [M,F].sample,
+  birth_date: Faker::Date,
+  weight: random_weight.sample,
+  height: [1.60,1.65,1.70,1.75,1.80].sample
+  medical_condition: "Stress" )
+
+PatientRecord.create(description: "Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  gender: [M,F].sample,
+  birth_date: Faker::Date,
+  weight: random_weight.sample,
+  height: [1.60,1.65,1.70,1.75,1.80].sample
+  medical_condition: "Obesity" )
+
+PatientRecord.create(description: "Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  gender: [M,F].sample,
+  birth_date: Faker::Date,
+  weight: random_weight.sample,
+  height: [1.60,1.65,1.70,1.75,1.80].sample
+  medical_condition: "Diabetes" )
+
+#Seeds for coaches
+
+CoachRecord.create(certification_number: Faker::DrivingLicence.british_driving_licence,
+  specialty: "Weight control" ,
+  description: "Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+
+CoachRecord.create(certification_number: Faker::DrivingLicence.british_driving_licence,
+  specialty: "Diabetes" ,
+  description: "Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+
+CoachRecord.create(certification_number: Faker::DrivingLicence.british_driving_licence,
+  specialty: "Stress management" ,
+  description: "Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+
+CoachRecord.create(certification_number: Faker::DrivingLicence.british_driving_licence,
+  specialty: "Nutrition" ,
+  description: "Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+
+CoachRecord.create(certification_number: Faker::DrivingLicence.british_driving_licence,
+  specialty: "Mental health" ,
+  description: "Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
