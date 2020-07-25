@@ -1,26 +1,18 @@
 class UsersController < ApplicationController
-  before_action :find_user
-
   def show
-  end
-
-  def coaches
-    all_coaches = User.all.select { |user| user.kind == "coach" }
-    if @user.kind == "patient"
-      @coaches = all_coaches.select { |coach| coach.patient_id = @user.id }
-    end
-  end
-
-  def patients
-    # all_coaches = User.all.select {|user| kind == "coach"}
-    # if @user.kind == "patient"
-    #   @coaches = all_coaches.select {|coach| coach.patient_id = @user.id }
-    # end
+    @user = current_user
+    authorize @user
+    # authorize @coaches = coaches
+    # authorize @patients = patients
   end
 
   private
 
-  def find_user
-    @user = User.find(params[:id])
+  def coaches
+    current_user.coaches
+  end
+
+  def patients
+    current_user.patients
   end
 end
