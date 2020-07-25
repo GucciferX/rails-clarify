@@ -27,3 +27,13 @@ end
 end
 
 puts "Seeded categories & plans database"
+
+
+# pr1 = PatientRecord.create(
+#   description: "Hola soy x",
+#   gender: "M",
+#   birth_date: Date.new(1988,4,13),
+#   weight: 65,
+#   height: 1.70,
+#   medical_condition: "Sociopath"
+# )
