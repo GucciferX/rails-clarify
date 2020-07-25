@@ -71,11 +71,11 @@ ActiveRecord::Schema.define(version: 2020_07_24_021348) do
     t.text "description"
     t.integer "duration"
     t.text "goal_description"
-    t.bigint "categories_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "number_of_consultations"
-    t.index ["categories_id"], name: "index_plans_on_categories_id"
+    t.index ["category_id"], name: "index_plans_on_category_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_021348) do
   add_foreign_key "consultations", "users", column: "coach_id"
   add_foreign_key "consultations", "users", column: "patient_id"
   add_foreign_key "patient_records", "users"
-  add_foreign_key "plans", "categories", column: "categories_id"
+  add_foreign_key "plans", "categories"
   add_foreign_key "reviews", "consultations"
   add_foreign_key "reviews", "users"
 end
