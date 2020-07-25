@@ -121,10 +121,9 @@ ActiveRecord::Schema.define(version: 2020_07_25_172126) do
   add_foreign_key "consultations", "users", column: "coach_id"
   add_foreign_key "consultations", "users", column: "patient_id"
   add_foreign_key "patient_records", "users"
-  add_foreign_key "plans", "categories"
   add_foreign_key "plan_coaches", "plans"
   add_foreign_key "plan_coaches", "users", column: "coach_id"
-  add_foreign_key "plans", "categories", column: "categories_id"
+  add_foreign_key "plans", "categories"
   add_foreign_key "reviews", "consultations"
   add_foreign_key "reviews", "users"
 end

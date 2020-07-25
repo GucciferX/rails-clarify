@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   def show
-    authorize @user = current_user
-    authorize @coaches = coaches
-    authorize @patients = patients
+    @user = current_user
+    authorize @user
+    # authorize @coaches = coaches
+    # authorize @patients = patients
   end
 
   private

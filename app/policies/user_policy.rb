@@ -6,6 +6,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    user == @user
+    user == record
   end
 end
