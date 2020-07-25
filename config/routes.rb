@@ -18,4 +18,7 @@ Rails.application.routes.draw do
     resources :patient_records, only: [:new, :create, :edit, :update]
     resources :coach_records, only: [:new, :create, :edit, :update]
   end
+  # Plans for users
+    resources :plans, only: [:index, :show]
 end
+
