@@ -1,15 +1,21 @@
 <div class="jumbotron jumbotron-fluid banner-jumbotron">
   <div class="container w-75">
-    <h1 class="display-4">Clarity</h1>
-    <p class="lead">Mind and body care from home</p>
-    <hr class="my-4">
-    <div class="card p-3" style="color: black;">
-
-      <p>Clarity is a virtual care service that combines a human-centric approach with technology to address chronic physical and behavioral health conditions.</p>
-      <p class="text-right">
-        <a class="btn btn-primary btn-lg" href="contact" role="button">Learn more</a>
-      </p>
+    <div class="banner-hero" >
+      <h1 class="display-4 text-white">Clarity</h1>
+      <p class="lead text-white">Mind and body care from home</p>
+      <!-- <hr class="my-4"> -->
+      <div class="card p-3 custom-card shadow">
+        <p>Clarity is a virtual care service that combines a human-centric approach with technology to address chronic physical and behavioral health conditions.</p>
+        <p class="text-right mt-3">
+          <a class="btn btn-primary btn-lg" href="contact" role="button">Learn more</a>
+        </p>
+      </div>
     </div>
 
   </div>
+</div>
+<div class="container mt-5">
+
+  <h2>Get to know some of our plans</h2>
+  <%= render "plans/planlist", plans: @plans  %>
 </div>
