@@ -13,5 +13,7 @@ class User < ApplicationRecord
   has_many :plans, through: :consultations
   has_many :plan_coaches, class_name: "PlanCoach", foreign_key: "coach_id"
 
+  accepts_nested_attributes_for :patient_record, :coach_record
+
   validates :email, presence: true, uniqueness: true
 end

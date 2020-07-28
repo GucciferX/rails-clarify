@@ -1,0 +1,41 @@
+=> [[32m#<CoachRecord:0x0000562b22ee1788[0m
+  id: [1;34m1[0m,
+  certification_number: [31m[1;31m"[0m[31mPRICE954201NH1PI[1;31m"[0m[31m[0m,
+  specialty: [31m[1;31m"[0m[31mEndocrinology[1;31m"[0m[31m[0m,
+  description: [31m[1;31m"[0m[31m[[1;35m\"[0m[31mAmet est natus.[1;35m\"[0m[31m, [1;35m\"[0m[31mVoluptatem inventore aut.[1;35m\"[0m[31m, [1;35m\"[0m[31mFacilis aut adipisci.[1;35m\"[0m[31m, [1;35m\"[0m[31mQuo in a.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  user_id: [1;34m36[0m,
+  created_at: [1;34;4mMon[0m, [1;34m27[0m [1;34;4mJul[0m [1;34m2020[0m [1;34m22[0m:[1;34m46[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mMon[0m, [1;34m27[0m [1;34;4mJul[0m [1;34m2020[0m [1;34m22[0m:[1;34m46[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<CoachRecord:0x0000562b22ee16c0[0m
+  id: [1;34m2[0m,
+  certification_number: [31m[1;31m"[0m[31mABERN659086HJ0ML[1;31m"[0m[31m[0m,
+  specialty: [31m[1;31m"[0m[31mCardiology[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31m[[1;35m\"[0m[31mEum inventore est.[1;35m\"[0m[31m, [1;35m\"[0m[31mRecusandae voluptas aut.[1;35m\"[0m[31m, [1;35m\"[0m[31mMolestiae reiciendis repellat.[1;35m\"[0m[31m, [1;35m\"[0m[31mVoluptatem repellat occaecati.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  user_id: [1;34m37[0m,
+  created_at: [1;34;4mMon[0m, [1;34m27[0m [1;34;4mJul[0m [1;34m2020[0m [1;34m22[0m:[1;34m46[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mMon[0m, [1;34m27[0m [1;34;4mJul[0m [1;34m2020[0m [1;34m22[0m:[1;34m46[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<CoachRecord:0x0000562b22ee15f8[0m
+  id: [1;34m3[0m,
+  certification_number: [31m[1;31m"[0m[31mHUDSO809018EF8WK[1;31m"[0m[31m[0m,
+  specialty: [31m[1;31m"[0m[31mOrthopedics[1;31m"[0m[31m[0m,
+  description: [31m[1;31m"[0m[31m[[1;35m\"[0m[31mAccusantium earum harum.[1;35m\"[0m[31m, [1;35m\"[0m[31mHic sunt fugiat.[1;35m\"[0m[31m, [1;35m\"[0m[31mIure blanditiis necessitatibus.[1;35m\"[0m[31m, [1;35m\"[0m[31mNon architecto inventore.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  user_id: [1;34m38[0m,
+  created_at: [1;34;4mMon[0m, [1;34m27[0m [1;34;4mJul[0m [1;34m2020[0m [1;34m22[0m:[1;34m46[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mMon[0m, [1;34m27[0m [1;34;4mJul[0m [1;34m2020[0m [1;34m22[0m:[1;34m46[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<CoachRecord:0x0000562b22ee1530[0m
+  id: [1;34m4[0m,
+  certification_number: [31m[1;31m"[0m[31mPURDY661239TE5ZT[1;31m"[0m[31m[0m,
+  specialty: [31m[1;31m"[0m[31mNeurology[1;31m"[0m[31m[0m,
+  description: [31m[1;31m"[0m[31m[[1;35m\"[0m[31mDolorem deleniti ipsa.[1;35m\"[0m[31m, [1;35m\"[0m[31mEx et voluptates.[1;35m\"[0m[31m, [1;35m\"[0m[31mFacere quis voluptates.[1;35m\"[0m[31m, [1;35m\"[0m[31mNeque consequatur consequuntur.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  user_id: [1;34m39[0m,
+  created_at: [1;34;4mMon[0m, [1;34m27[0m [1;34;4mJul[0m [1;34m2020[0m [1;34m22[0m:[1;34m46[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mMon[0m, [1;34m27[0m [1;34;4mJul[0m [1;34m2020[0m [1;34m22[0m:[1;34m46[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<CoachRecord:0x0000562b22ee1468[0m
+  id: [1;34m5[0m,
+  certification_number: [31m[1;31m"[0m[31mKLOCK708309IN0LP[1;31m"[0m[31m[0m,
+  specialty: [31m[1;31m"[0m[31mOrthopedics[1;31m"[0m[31m[0m,
+  description: [31m[1;31m"[0m[31m[[1;35m\"[0m[31mRepellat autem eius.[1;35m\"[0m[31m, [1;35m\"[0m[31mDeserunt accusamus ex.[1;35m\"[0m[31m, [1;35m\"[0m[31mConsectetur occaecati ut.[1;35m\"[0m[31m, [1;35m\"[0m[31mQuidem ea impedit.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  user_id: [1;34m40[0m,
+  created_at: [1;34;4mMon[0m, [1;34m27[0m [1;34;4mJul[0m [1;34m2020[0m [1;34m22[0m:[1;34m46[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mMon[0m, [1;34m27[0m [1;34;4mJul[0m [1;34m2020[0m [1;34m22[0m:[1;34m46[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m]
