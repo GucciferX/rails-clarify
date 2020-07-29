@@ -5,6 +5,7 @@ Review.destroy_all
 ConsultationNote.destroy_all
 Consultation.destroy_all
 Plan.destroy_all
+PlanCoach.destroy_all
 Category.destroy_all
 CoachRecord.destroy_all
 PatientRecord.destroy_all
@@ -20,7 +21,7 @@ User.where.not(email: ["berveco@gmail.com", "main_coach@gmail.com"]).destroy_all
 # super_coach.save!
 
 # Seed 5 coach users
-5.times {
+20.times {
   user = User.new( kind: "coach", email: Faker::Internet.email)
   user.password = Faker::Blockchain::Bitcoin.address
   user.password_confirmation = user.password
@@ -29,7 +30,7 @@ User.where.not(email: ["berveco@gmail.com", "main_coach@gmail.com"]).destroy_all
 puts 'created 5 coach users'
 
 # Seed 5 patient users
-5.times {
+20.times {
   user = User.new(email: Faker::Internet.email)
   user.password = Faker::Blockchain::Bitcoin.address
   user.password_confirmation = user.password
@@ -98,17 +99,31 @@ plan_names = [
 random_number = (5..65).to_a
 
 # Seed plans
-# User.where(kind: "patient").each do |patient|
-#   new_plan = Plan.new(
-#       name: plan_names.sample,
-#       goal_description: Faker::Marketing.buzzwords,
-#       description: Faker::GreekPhilosophers.quote,
-#       category_id: Category.all.sample.id,
-#       duration: random_number.sample,
-#       number_of_consultations: random_number.sample
-#   )
-#   new_plan.patient = patient
-#   new_plan.save!
-# end
+50.times {
+  new_plan = Plan.new(
+      name: plan_names.sample,
+      description: Faker::GreekPhilosophers.quote,
+      duration: random_number.sample,
+      goal_description: Faker::Marketing.buzzwords,
+      category_id: Category.all.sample.id,
+      number_of_consultations: random_number.sample
+  )
+  new_plan.coaches << User.where(kind: "coach").sample(5)
+  new_plan.save!
+}
+puts "seeded plans for every patient"
 
-# puts "seeded plans for every patient"
+# Seed consultations
+3.times {
+  User.where(kind: "patient").each do |patient|
+    new_consultation = Consultation.new(
+      accepted_by_coach: false,
+    )
+    new_consultation.patient = patient
+    consultation_plan = Plan.all.sample
+    new_consultation.plan = consultation_plan
+    new_consultation.coach = consultation_plan.coaches.sample
+    new_consultation.save!
+  end
+}
+puts "seeded consultations for every patient"

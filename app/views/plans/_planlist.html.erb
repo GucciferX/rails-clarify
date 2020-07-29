@@ -1,11 +1,10 @@
-<% plans.each do |plan| %>
-
+<% @plans.each do |plan| %>
   <div class="card custom-card shadow" style="width: 50%;">
     <img src="#" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><%= plan.name %></h5>
       <p class="card-text"><%= plan.description %></p>
-      <a href="#" class="btn btn-primary">View plan</a>
+      <%= link_to 'View Plan', plan_path(plan) %> 
     </div>
   </div>
 <% end %>
