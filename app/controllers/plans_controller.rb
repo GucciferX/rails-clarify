@@ -6,5 +6,11 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     authorize @plan
+    @coaches = coaches
+  end
+
+  def coaches
+    @plan = Plan.find(params[:id])
+    @plan.coaches
   end
 end
