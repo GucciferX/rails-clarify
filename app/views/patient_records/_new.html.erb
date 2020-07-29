@@ -1,0 +1,14 @@
+<div class="container">
+  <%= simple_form_for [ @user, @record ] do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :phone %>
+    <%= f.input :gender %>
+    <%= f.input :birth_date %>
+    <%= f.input :weight %>
+    <%= f.input :height %>
+    <%= f.input :medical_condition %>
+    <%= f.input :description %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>
