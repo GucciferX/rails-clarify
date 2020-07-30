@@ -1,4 +1,4 @@
-class CoachRecordPolicy < ApplicationPolicy
+class ConsultationPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,7 +6,7 @@ class CoachRecordPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.user == user || user.coaches.includes?(record.user)
   end
 
   def create?
@@ -14,6 +14,10 @@ class CoachRecordPolicy < ApplicationPolicy
   end
 
   def update?
+    record.user == user
+  end
+
+  def destroy?
     record.user == user
   end
 end

@@ -1,10 +1,36 @@
-<% @plans.each do |plan| %>
-  <div class="card custom-card shadow" style="width: 50%;">
-    <img src="#" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%= plan.name %></h5>
-      <p class="card-text"><%= plan.description %></p>
-      <%= link_to 'View Plan', plan_path(plan) %> 
-    </div>
+<div class="container">
+  <div class="custom-plans-container">
+    <% plans.each do |plan| %>
+      <div class="card custom-card">
+        <%= image_tag "https://source.unsplash.com/collection/779536/1000x700", alt: "alttext", class: "custom-card-image"  %>
+        <div class="card-body">
+          <h5 class="card-title"><%= plan.name %></h5>
+          <p class="card-text"><%= plan.description %></p>
+          <% if user_signed_in? %>
+            <%= link_to "Go to plan", plan_path(plan.id), class: "btn btn-primary" %>
+          <% else %>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+              View plan
+            </button>
+
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content custom-modal custom-padding-sm">
+                  <div class="modal-header custom-modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"><%= plan.name %></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= render "plans/plan_show", plan: plan %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

@@ -8,12 +8,9 @@ Rails.application.routes.draw do
 
   # Logged in Users
   resources :users, only: [:show] do
-    collection do
-      get :coaches
-      get :patients
-    end
     resources :patient_records, only: [:new, :create, :edit, :update]
     resources :coach_records, only: [:new, :create, :edit, :update]
+
     resources :consultations do
       resources :reviews, only: [:new, :create, :edit, :update]
       resources :consultation_notes, only: [:new, :create, :edit, :update]
