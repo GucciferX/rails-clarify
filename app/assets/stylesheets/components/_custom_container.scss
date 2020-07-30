@@ -1,0 +1,37 @@
+$big-mobile: 769px;
+
+.custom-plans-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 16px;
+
+  @media screen and (max-width: $big-mobile) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.custom-padding {
+  padding: 24px;
+}
+
+.custom-eigth-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.custom-vertical-spacing {
+  margin: 76px auto;
+
+   @media screen and (max-width: $big-mobile) {
+    margin: 88px auto;
+  }
+}
+
+.custom-form-spacing {
+  margin: 46px auto;
+
+   @media screen and (max-width: $big-mobile) {
+    margin: 58px auto;
+  }
+}

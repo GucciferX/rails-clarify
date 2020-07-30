@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag "https://lh3.googleusercontent.com/proxy/tGzPBACSHa7n7dKP_LXL1aH_HbXk1Nn6ERlsmwqT24kDZw0VD7kQ27HOeMtLFhamuDKaK1jl9A1M5Co-zLw8frp-wh54AmVwEs9rcK6GVvHdvNRlYDKnCXHNBZAjrAHLBYNklnYR" %>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "clarify-white.png", style: "height: 50px; width: auto;" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,10 +11,10 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to "Home", "#", class: "btn btn-primary mr-2" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+          <%= link_to "Messages", "#", class: "btn btn-primary mr-2" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
