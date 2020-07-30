@@ -1,11 +1,14 @@
-<% plans.each do |plan| %>
-
-  <div class="card custom-card shadow" style="width: 50%;">
-    <img src="#" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%= plan.name %></h5>
-      <p class="card-text"><%= plan.description %></p>
-      <a href="#" class="btn btn-primary">View plan</a>
-    </div>
+<div class="container">
+  <div class="custom-plans-container">
+    <% plans.each do |plan| %>
+      <div class="card custom-card">
+        <%= image_tag "https://source.unsplash.com/collection/779536/1000x700", alt: "alttext", class: "custom-card-image"  %>
+        <div class="card-body">
+          <h5 class="card-title"><%= plan.name %></h5>
+          <p class="card-text"><%= plan.description %></p>
+          <a href="#" class="btn btn-primary">View plan</a>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
