@@ -5,4 +5,6 @@ class Consultation < ApplicationRecord
 
   has_one :consultation_note
   has_many :reviews
+
+  validates :start_time, :end_time, presence: true
 end

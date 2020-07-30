@@ -5,19 +5,11 @@ class PatientRecordPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    true
-  end
-
-  def show?
-    true
-  end
-
   def create?
-    true
+    record.user == user
   end
 
   def update?
-    true
+    record.user == user
   end
 end

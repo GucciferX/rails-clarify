@@ -1,15 +1,21 @@
-<h1><%=@plan.name%> </h1>
+<div class="container">
 
-#link to coaches
-<%= link_to 'View Plan', plan_path(@plan) %> 
-<ul>
-  <% @coaches.each do |coach| %>
-    <li>
-    <%= "#{coach.coach_record.first_name.capitalize} #{coach.coach_record.last_name.capitalize}" %>
-    <%# send to coach profile %>
-    <%= link_to 'See Coach Profile', user_path(coach) %>
-     <%# send to consultation/new %>
-    <%= link_to 'Select Coach for Appointment', user_path(coach) %> 
-    </li>
-  <% end %>
-</ul>
+  <h1><%= @plan.name %> </h1>
+  <h2><%= @plan.category.name %></h2>
+  <hr>
+  <p><%= @plan.description %></p>
+  <p><%= "#{@plan.duration} months" %></p>
+  <p><%= "#{@plan.number_of_consultations} appoitments"%></p>
+  <hr>
+  <ul>
+    <% @coaches.each do |coach| %>
+      <li>
+      <%= "#{coach.coach_record.first_name.capitalize} #{coach.coach_record.last_name.capitalize}" %>
+      <%# send to coach profile %>
+      <%= button_to 'See Coach Profile', user_path(coach) %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= button_to 'Book Appointment', new_user_consultation_path(current_user), method: :get %>
+</div>
