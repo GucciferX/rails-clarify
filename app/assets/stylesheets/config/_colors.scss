@@ -1,14 +1,16 @@
 // Define variables for your color scheme
 
 // For example:
-$red: #FD1015;
+$red: #7A554B; //  normal bootstrap danger (red)
 $main-purple: #5D3869;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #36B019;
+$secondary-purple: #774887;
+$yellow: #8BC494; // normal bootstrap info (light blue)
+$orange: #592E38; // normal bootstrap warning (yellow)
+$green: #76A67D;
 $gray: #492C52;
-$light-gray: rgba(179, 255, 119, 0.2);
+$light-gray: rgba(135, 233, 255, 0.05);
 $border-green: #000;
-$text-gray: #333;
-
-// rgba(71, 102, 48, 0.7)
+$text-gray: #212015;
+// for shadows
+$sienna: rgba(33, 32, 21, 0.1);
+$sienna-active: rgba(33, 32, 21, 0.2);
