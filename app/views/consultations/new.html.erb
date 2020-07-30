@@ -1,7 +1,7 @@
-<h1>"Schedule an appointment"</h1>
-
-<%= simple_form_for [current_user, @consultation] do |f| %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.button :submit, "Schedule", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <h1>Schedule appointment</h1>
+  <%= simple_form_for [current_user, @consultation] do |f| %>
+    <%= f.input :start_time, as: :datetime, order: [:day, :month, :year] %>
+    <%= f.button :submit, "Schedule", class: "btn btn-primary" %>
+  <% end %>
+</div>
