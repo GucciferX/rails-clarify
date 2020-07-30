@@ -3,8 +3,7 @@ class UsersController < ApplicationController
     @user = current_user
     authorize @user
     @record = set_record
-    # authorize @coaches = coaches
-    # authorize @patients = patients
+    authorize @record
   end
 
   private
@@ -19,9 +18,17 @@ class UsersController < ApplicationController
 
   def set_record
     if current_user.kind == "patient"
-      PatientRecord.find_by(user_id: current_user.id)
+      if PatientRecord.find_by(user_id: current_user.id).nil?
+        PatientRecord.new
+      else
+        PatientRecord.find_by(user_id: current_user.id)
+      end
     else
-      CoachRecord.find_by(user_id: current_user.id)
+      if CoachRecord.find_by(user_id: current_user.id).nil?
+        CoachRecord.new
+      else
+        CoachRecord.find_by(user_id: current_user.id)
+      end
     end
   end
 end
