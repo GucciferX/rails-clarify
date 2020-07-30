@@ -10,9 +10,12 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :patient_records, only: [:new, :create, :edit, :update]
     resources :coach_records, only: [:new, :create, :edit, :update]
-    resources :consultations, only: [:new, :create, :edit, :update]
+
+    resources :consultations do
+      resources :reviews, only: [:new, :create, :edit, :update]
+      resources :consultation_notes, only: [:new, :create, :edit, :update]
+    end
   end
   # Plans for users
   resources :plans, only: [:index, :show]
 end
-

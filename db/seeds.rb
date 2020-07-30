@@ -4,12 +4,13 @@ require 'faker'
 Review.destroy_all
 ConsultationNote.destroy_all
 Consultation.destroy_all
-Plan.destroy_all
 PlanCoach.destroy_all
+Plan.destroy_all
 Category.destroy_all
 CoachRecord.destroy_all
 PatientRecord.destroy_all
-User.where.not(email: ["berveco@gmail.com", "main_coach@gmail.com"]).destroy_all
+User.destroy_all
+# User.where.not(email: ["berveco@gmail.com", "main_coach@gmail.com"]).destroy_all
 
 # Code for the user of the coach example
 # super_coach = User.new(
@@ -46,12 +47,12 @@ medical_specialties = [
 
 User.where(kind: "coach").each do |coach|
   CoachRecord.create(
-    first_name: Faker::Artist.name,
-    last_name: Faker::Name.last_name,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Artist.name,
     phone: Faker::PhoneNumber.phone_number,
     certification_number: Faker::DrivingLicence.british_driving_licence,
     specialty: medical_specialties.sample,
-    description: Faker::Lorem.sentences(number: 4),
+    description: Faker::TvShows::BojackHorseman.quote,
     user_id: coach.id
   )
 end
@@ -66,14 +67,14 @@ medical_conditions = ['Diabetes', 'Hypertension', 'Ischemic Heart Disease',
 
 User.where(kind: "patient").each do |patient|
   PatientRecord.create(
-    first_name: Faker::Artist.name,
+    first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     phone: Faker::PhoneNumber.phone_number,
-    description: Faker::Lorem.sentences(number: 4),
-    gender: ['M','F'].sample,
+    description: Faker::GreekPhilosophers.quote,
+    gender: Faker::Gender.short_binary_type,
     birth_date: Faker::Date.birthday(min_age: 18, max_age: 80),
     weight: random_weight.sample,
-    height: [1.60,1.65,1.70,1.75,1.80].sample,
+    height: Faker::Demographic.height,
     medical_condition: medical_conditions.sample,
     user_id: patient.id
   )
@@ -95,29 +96,48 @@ plan_names = [
   'Diabetes Prevention', 'COPD Management', 'Stress Resilience', 
   'Stress Management', 'Therapy' 
 ]
-# Create random number to use in plans seed
-random_number = (5..65).to_a
+
+plan_descriptions = [
+  'Lose Weight By Making Small Changes That Work.\nWant to drop those persistent pounds, put an end to yo-yo dieting, or achieve a head-to-toe health transformation? Other programs focus on what to eat. We focus on what and why you eat, to help you make small changes that stick. \n You’ll set up for success with the guidance and support of your own personal health coach. The average graduate of this program loses 7% of their body weight—that’s impressive!',
+  'Get Your Body In Gear To Feel Fit And Strong.\nRegular exercise boosts energy, reduces stress, builds strong bones, and lowers your risk of heart attack or injury. Plus it helps you look and feel your best.\nIf you want to be active and stay active, this program is for you. Your health coach will help you get moving more often and fit scheduled activity into your busy days, ramping up at a rate that’s right for you.',
+  'You Are What You Eat, So Eat Well And Optimize Your Nutrition.\nWhether you’re looking to boost your energy, invest in your long-term health, or manage your weight, eating well is key.\nIn this program, you’ll select one of five nutrition pathways: Lower Carb, Mediterranean-Style, Healthy Fats, Plant-Based, or Lower Sodium. Together with your coach, you’ll explore science-based approaches to better nutrition. You’ll design a personalized eating plan—and build skills to stick with it.',
+  'Develop A Routine That Helps You Rest Well And Longer.\nSleep—it helps you feel and be your best. It’s essential for your body and your mind.\n  In this program, you’ll partner with a Vida health coach on a personalized plan to help you sleep better, and longer. With an improved sleep routine in place, you’ll gain the physical and mental energy you need to get the most from your days.',
+  'Overcome Diabetes For A Long And Healthy Life.\nWhether you’re recently diagnosed with type 2 diabetes or have lived with it for years, this program can help you manage your diabetes and take charge of your health. Your diabetes coach will help you craft a plan to get where you want to be—one step at a time.',
+  'Protect Your Heart And Brain With Healthy Habits.\nDesigned by doctors and healthy living experts, this program helps you to manage high blood pressure and take charge of your health.\nSmall changes add up over time. A personal health coach will partner with you to identify changes you can make to build healthy habits. Three out of four Vida members looking to manage their high blood pressure have lowered it by at least one stage. How’s that for taking the pressure off?',
+  'Improve Your Cholesterol, One Small Change At A Time.\nBetter cholesterol—and improved health—is within your reach. We’re here to help you take charge.\nWith this program, you and your personal coach will develop an actionable plan that’s a perfect fit for you. Then, partner with your coach to put the plan into action, and start on your journey to improved habits—and improved numbers.',
+  'Stop Diabetes Before It Starts, With Weight Loss, Good Food, And Exercise.\nVida’s Diabetes Prevention program is part of a nationwide effort to prevent type 2 diabetes, based on research into what really works.\nPrograms like this one, designed to help you develop healthier habits, have been shown to reduce diabetes risk by half. What’s more, your risk stays lower over the long-term. Whether you have prediabetes or simply want to build healthy habits for life, this program can help.',
+  'Catch More Breath, Tame Flare-Ups, And Boost Your Energy.\nIn this program, you’ll work with a personal health coach to learn and apply skills that can help you manage COPD. Make healthy changes to reduce your risk of other complications and prolong your health, with a partner by your side.',
+  'Grow Your Grit! Bounce Back Better From Challenges And Seize Each Moment As An Opportunity.\nLife is full of everyday ups and downs. Learn to adapt and cope in ways that make you feel less stressed and bring more satisfaction in all that you do.\nThis program will help you tap into your strengths. You’ll practice mindfulness and stress management with world-renowned expert Shauna Shapiro, PhD. You’ll flex your adapting “muscles” so you can truly thrive.',
+  'Gain Proven Skills For Coping With Everyday Stress And Big Life Changes.\nStress is common and often constant in life. Fortunately, you can gain skills to better cope with stress, whatever life brings your way.\nIn this program, you’ll learn research-based mindfulness methods to cope with stress. Participants reduced their stress by an average of 30% after a month in the program.',
+  'Learn Strategies To Lift Your Mood And Cope With Life’s Challenges.\nAre your thoughts getting in the way of you living life to its fullest? You’re not alone. Nearly 1 in 10 people are depressed, and most everyone feels anxious from time to time.\nIn this program, you’ll work with a licensed therapist to cope with life’s challenges and improve your outlook. The methods and skills you’ll learn are based on proven cognitive behavioral therapy techniques.'
+]
+
 
 # Seed plans
-50.times {
-  new_plan = Plan.new(
-      name: plan_names.sample,
-      description: Faker::GreekPhilosophers.quote,
-      duration: random_number.sample,
-      goal_description: Faker::Marketing.buzzwords,
-      category_id: Category.all.sample.id,
-      number_of_consultations: random_number.sample
-  )
-  new_plan.coaches << User.where(kind: "coach").sample(5)
-  new_plan.save!
+3.times{
+  plan_names.each do |plan|
+    plan_name = plan_names.sample
+    new_plan = Plan.new(
+        name: plan_name,
+        description: plan_descriptions[plan_names.index(plan_name)],
+        duration: [6,8,12,18,24,52].sample,
+        goal_description: Faker::Marketing.buzzwords,
+        category_id: Category.all.sample.id,
+        number_of_consultations: [1,2,5].sample
+    )
+    new_plan.coaches << User.where(kind: "coach").sample(5)
+    new_plan.save!
+  end
 }
 puts "seeded plans for every patient"
 
 # Seed consultations
 3.times {
   User.where(kind: "patient").each do |patient|
+    new_time = Faker::Time.between(from: DateTime.now - 360, to: DateTime.now, format: :default)
     new_consultation = Consultation.new(
-      accepted_by_coach: false,
+      start_time: new_time,
+      end_time: (new_time.to_time + 1.hours).to_datetime
     )
     new_consultation.patient = patient
     consultation_plan = Plan.all.sample
@@ -127,3 +147,31 @@ puts "seeded plans for every patient"
   end
 }
 puts "seeded consultations for every patient"
+
+# Seed consultation_notes
+Consultation.all.each do |consultation|
+  new_note = ConsultationNote.new(
+    comment: Faker::TvShows::SouthPark.quote,
+    patient_rating: [1,2,3,4,5].sample
+  )
+  new_note.consultation = consultation
+  new_note.save!
+end
+
+# Consultation.all.each do |consultation|
+#   if consultation.patient.rating.nil?
+#     consultation.patient.rating = consultation.consultation_note.patient_rating
+#   else
+#     consultation.patient.rating = (consultation.patient.rating + consultation.consultation_note.patient_rating).fdiv(Consultation.where(patient: consultation.patient).count)
+#   end
+# end
+
+# Seed reviews
+Consultation.all.each do |consultation|
+  new_review = Review.new(
+    comment: Faker::TvShows::SouthPark.quote,
+    coach_rating: [1,2,3,4,5].sample
+  )
+  new_review.consultation = consultation
+  new_review.save!
+end
