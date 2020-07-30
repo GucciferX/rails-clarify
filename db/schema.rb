@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_160341) do
+ActiveRecord::Schema.define(version: 2020_07_30_041416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_160341) do
     t.bigint "consultation_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "patient_rating"
     t.index ["consultation_id"], name: "index_consultation_notes_on_consultation_id"
   end
 
@@ -48,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_160341) do
     t.bigint "patient_id"
     t.bigint "coach_id"
     t.bigint "plan_id", null: false
-    t.boolean "accepted_by_coach"
+    t.boolean "accepted_by_coach", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["coach_id"], name: "index_consultations_on_coach_id"
@@ -95,13 +96,11 @@ ActiveRecord::Schema.define(version: 2020_07_28_160341) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "comment"
-    t.integer "rating"
+    t.integer "coach_rating"
     t.bigint "consultation_id", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["consultation_id"], name: "index_reviews_on_consultation_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -128,5 +127,4 @@ ActiveRecord::Schema.define(version: 2020_07_28_160341) do
   add_foreign_key "plan_coaches", "users", column: "coach_id"
   add_foreign_key "plans", "categories"
   add_foreign_key "reviews", "consultations"
-  add_foreign_key "reviews", "users"
 end

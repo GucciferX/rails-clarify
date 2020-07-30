@@ -15,7 +15,6 @@ class PatientRecordsController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update

@@ -4,5 +4,7 @@ class Consultation < ApplicationRecord
   belongs_to :plan
 
   has_one :consultation_note
-  has_many :reviews
+  has_one :review
+
+  validates :start_time, :end_time, presence: true
 end
