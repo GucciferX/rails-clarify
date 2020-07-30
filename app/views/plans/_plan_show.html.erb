@@ -1,11 +1,7 @@
-<div class="container custom-eigth-container">
-  <div class="d-flex">
-    <%= image_tag "https://source.unsplash.com/collection/631011", alt: "alttext",  style: 'width:35%; object-fit:cover;' %>
-    <div class="custom-padding">
-      <h4> <%= plan.name %> </h4>
-      <p> <%= plan.description.capitalize %> </p>
-      <p> <%= plan.goal_description %> </p>
-    </div>
+<div class="d-flex">
+  <%= image_tag "https://source.unsplash.com/collection/631011", alt: "alttext",  style: 'width:35%; object-fit:cover;' %>
+  <div class="custom-padding">
+    <p> <%= plan.description.capitalize %> </p>
+    <p> <%= plan.goal_description %> </p>
   </div>
 </div>
-
