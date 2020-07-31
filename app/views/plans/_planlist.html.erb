@@ -1,13 +1,13 @@
 <div class="container">
   <div class="custom-plans-container">
-    <% plans.each do |plan| %>
+    <% @plans.first(12).each do |plan| %>
       <div class="card custom-card">
         <%= image_tag "https://source.unsplash.com/collection/779536/1000x700", alt: "alttext", class: "custom-card-image"  %>
         <div class="card-body">
           <h5 class="card-title"><%= plan.name %></h5>
           <p class="card-text"><%= plan.description %></p>
           <% if user_signed_in? %>
-            <%= link_to "Go to plan", plan_path(plan.id), class: "btn btn-primary" %>
+            <%= link_to "Go to plan", plan_path(plan), class: "btn btn-primary" %>
           <% else %>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
               View plan

@@ -6,18 +6,26 @@ class ConsultationPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user || user.coaches.includes?(record.user)
+    record.patient == user || user.coaches.includes?(record.patient)
+  end
+
+  def new?
+    true
   end
 
   def create?
-    record.user == user
+    record.patient == user
+  end
+
+  def edit?
+    true
   end
 
   def update?
-    record.user == user
+    record.patient == user
   end
 
   def destroy?
-    record.user == user
+    record.patient == user
   end
 end
