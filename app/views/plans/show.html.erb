@@ -5,14 +5,14 @@
   <hr>
   <p><%= @plan.description %></p>
   <p><%= "#{@plan.duration} months" %></p>
-  <p><%= "#{@plan.number_of_consultations} appoitments"%></p>
+  <p><%= "#{@plan.number_of_consultations} appointments per week"%></p>
   <hr>
   <ul>
     <% @coaches.each do |coach| %>
       <li>
       <%= "#{coach.coach_record.first_name.capitalize} #{coach.coach_record.last_name.capitalize}" %>
       <%# send to coach profile %>
-      <%= button_to 'See Coach Profile', user_path(coach) %>
+      <%= button_to 'See Coach Profile', user_path(coach), method: :get %>
       </li>
     <% end %>
   </ul>

@@ -9,17 +9,18 @@ class ConsultationsController < ApplicationController
   end
 
   def new
-    @consultation = current_user.consultations.new
+    @consultation = Consultation.new
     authorize @consultation
   end
 
   def create
-    @consultation = current_user.consultations.new(consultation_params)
+    @consultation = Consultation.new(consultation_params)
+    @consultation.end_time = (@consultation.start_time.to_time + 1.hours).to_datetime
+    @consultation.patient = current_user
     authorize @consultation
 
-    @consultation.patient = current_user
-    @consultation.plan = #plan
-    @consultation.coach = #coach
+    @consultation.plan = consultation_params.plan
+    @consultation.coach = consultation_params.coach
 
     if @consultation.save
       redirect_to @consultation
@@ -54,6 +55,6 @@ class ConsultationsController < ApplicationController
   private
 
   def consultation_params
-    params.require(:consultation).permit(:start_time, :end_time)
+    params.require(:consultation).permit(:start_time, :plan, :coach)
   end
 end

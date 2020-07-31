@@ -91,7 +91,7 @@ puts "seeded categories"
 
 # Create array of plan names
 plan_names = [
-  'Weight Control', 'Excercise', 'Eating better', 'Sleep health', 
+  'Weight Control', 'Exercise', 'Eating better', 'Sleep health', 
   'Diabetes Management', 'Healthy Blood Pressure', 'Healthy Colesterol',
   'Diabetes Prevention', 'COPD Management', 'Stress Resilience', 
   'Stress Management', 'Therapy' 
