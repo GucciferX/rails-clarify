@@ -1,14 +1,19 @@
 class PatientRecordsController < ApplicationController
+  def show
+    @patient_record = PatientRecord.find(params[:id])
+    authorize @patient_record
+  end
+
   def new
-    @patient_record = current_user.patient_record.new
+    @patient_record = PatientRecord.new
     authorize @patient_record
   end
 
   def create
-    @patient_record = current_user.patient_record.new(record_params)
+    @patient_record = PatientRecord.new(record_params)
     authorize @patient_record
-
     @patient_record.user = current_user
+
     if @patient_record.save
       redirect_to users_show_path(current_user)
     else

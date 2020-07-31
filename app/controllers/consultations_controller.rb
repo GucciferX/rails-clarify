@@ -9,6 +9,8 @@ class ConsultationsController < ApplicationController
   end
 
   def new
+    @plan = Plan.find(params[:plan])
+    @coaches = @plan.coaches
     @consultation = Consultation.new
     authorize @consultation
   end
@@ -17,11 +19,8 @@ class ConsultationsController < ApplicationController
     @consultation = Consultation.new(consultation_params)
     @consultation.end_time = (@consultation.start_time.to_time + 1.hours).to_datetime
     @consultation.patient = current_user
+    @consultation.coach = User.find(params[:consultation][:coach_id][1])
     authorize @consultation
-
-    @consultation.plan = consultation_params.plan
-    @consultation.coach = consultation_params.coach
-
     if @consultation.save
       redirect_to @consultation
     else
@@ -55,6 +54,6 @@ class ConsultationsController < ApplicationController
   private
 
   def consultation_params
-    params.require(:consultation).permit(:start_time, :plan, :coach)
+    params.require(:consultation).permit(:start_time, :plan_id)
   end
 end

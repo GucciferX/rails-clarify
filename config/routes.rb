@@ -8,12 +8,16 @@ Rails.application.routes.draw do
 
   # Logged in Users
   resources :users, only: [:show] do
-    resources :patient_records, only: [:new, :create, :edit, :update]
-    resources :coach_records, only: [:new, :create, :edit, :update]
+    resources :patient_records, only: [:show, :new, :create, :edit, :update]
+    resources :coach_records, only: [:show, :new, :create, :edit, :update]
 
-    resources :consultations do
+    resources :consultations, shallow: true do
       resources :reviews, only: [:new, :create, :edit, :update]
       resources :consultation_notes, only: [:new, :create, :edit, :update]
+    end
+
+    member do
+      get 'dashboard'
     end
   end
   # Plans for users

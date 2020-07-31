@@ -11,16 +11,23 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "btn btn-primary m-1" %>
+          <%= link_to "Home", "/", class: "btn btn-primary m-1" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Messages", "#", class: "btn btn-primary m-1" %>
+          <%= link_to "Plans", "/plans", class: "btn btn-primary m-1" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Dashboard", "/plans", class: "btn btn-primary m-1" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right custom-card" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%# <% if current_user.kind == 'patient' %>
+              <%# <% route = user_patient_record_path(current_user) %> %>
+            <%# <% else %> %>
+              <%# <% route = '/users/:user_id/coach_record' %> %>
+            <%# <% end %> %> %>
+            <%= link_to "Profile", '#', class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

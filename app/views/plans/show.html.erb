@@ -12,10 +12,11 @@
       <li>
       <%= "#{coach.coach_record.first_name.capitalize} #{coach.coach_record.last_name.capitalize}" %>
       <%# send to coach profile %>
-      <%= button_to 'See Coach Profile', user_path(coach), method: :get %>
+      <%= button_to 'See Coach Profile', user_coach_record_path(coach), method: :get %>
       </li>
     <% end %>
   </ul>
-
-  <%= button_to 'Book Appointment', new_user_consultation_path(current_user), method: :get %>
+ 
+  <%= button_to 'Book Appointment', new_user_consultation_path(current_user, controller: "consultations"), method: :get, params: { plan: @plan } %>
+  <br>
 </div>
