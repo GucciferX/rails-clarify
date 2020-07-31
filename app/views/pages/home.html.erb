@@ -1,11 +1,12 @@
 <div class="jumbotron jumbotron-fluid banner-jumbotron">
-  <div class="container w-75">
+  <div class="container custom-eigth-container">
     <div class="banner-hero" >
       <h1 class="display-4 text-white">Mind and body care from home</h1>
       <div class="card p-3 custom-card-static custom-padding">
         <p>Clarity is a virtual care service that combines a human-centric approach with technology to address chronic physical and behavioral health conditions.</p>
         <p class="text-right mt-3">
-          <a class="btn btn-primary btn-lg" href="contact" role="button">Learn more</a>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
+          <!-- <a class="btn btn-primary btn-lg" href="contact" role="button">Learn more</a> -->
         </p>
       </div>
     </div>
@@ -13,7 +14,6 @@
   </div>
 </div>
 <div class="container custom-vertical-spacing">
-
   <h2>Get to know some of our plans</h2>
   <%= render "plans/planlist", plans: @plans  %>
 </div>

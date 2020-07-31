@@ -23,7 +23,13 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <%= render "plans/plan_show", plan: plan %>
+                    <div class="d-flex">
+                      <%= image_tag "https://source.unsplash.com/collection/631011", alt: "alttext",  style: 'width:35%; object-fit:cover;' %>
+                      <div class="custom-padding">
+                        <p> <%= plan.description.capitalize %> </p>
+                        <p> <%= plan.goal_description %> </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

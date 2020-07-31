@@ -11,23 +11,16 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "/", class: "btn btn-primary m-1" %>
+          <%= link_to "Enroll to a new plan",  plans_path , class: "btn btn-primary m-1" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Plans", "/plans", class: "btn btn-primary m-1" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Dashboard", "/plans", class: "btn btn-primary m-1" %>
+          <%= link_to "Dashboard", "#", class: "btn btn-primary m-1" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right custom-card" aria-labelledby="navbarDropdown">
-            <%# <% if current_user.kind == 'patient' %>
-              <%# <% route = user_patient_record_path(current_user) %> %>
-            <%# <% else %> %>
-              <%# <% route = '/users/:user_id/coach_record' %> %>
-            <%# <% end %> %> %>
-            <%= link_to "Profile", '#', class: "dropdown-item" %>
+            <%= link_to "Update profile", "#", class: "dropdown-item" %>
+            <%= link_to "Security", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
@@ -35,9 +28,9 @@
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "btn btn-primary m-1" %>
         </li>
-        <li class="nav-getintouch">
-          <%= link_to "Get In Touch", contact_path, class: "btn btn-primary m-1" %>
-        </li>
+        <!-- <li class="nav-getintouch"> -->
+<!--           <%= link_to "Sign up", contact_path, class: "btn btn-primary m-1" %> -->
+        <!-- </li> -->
       <% end %>
     </ul>
   </div>
