@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_041416) do
+ActiveRecord::Schema.define(version: 2020_07_31_044532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_041416) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
+    t.text "address"
     t.index ["user_id"], name: "index_coach_records_on_user_id"
   end
 

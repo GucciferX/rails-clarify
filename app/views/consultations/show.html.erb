@@ -1,1 +1,17 @@
-<h1>HolaShow</h1>
+<div class="container">
+  <h1>Appointment Details</h1>
+
+  <p><%= "Schedule: #{@consultation.start_time.strftime("%A %b %d %T")} to #{@consultation.end_time.strftime("%T")}" %></p>
+  <p>Duration: 1 hour - Please be present 15 min. before the appointment</p>
+
+  <h2><%= "#{@consultation.plan.name} Plan" %></h2>
+
+  <p><%= "Remember! The goal is #{@consultation.plan.goal_description}" %></p>
+
+  <p><%= "Patient: #{@consultation.patient.patient_record.first_name.capitalize} #{@consultation.patient.patient_record.last_name.capitalize}" %></p>
+  <p><%= "Coach: #{@consultation.coach.coach_record.first_name.capitalize} #{@consultation.coach.coach_record.last_name.capitalize}" %></p>
+
+  <p><%= "Address: #{@consultation.coach.coach_record.address}" %></p>
+
+  <%= button_to 'Awesome', '/', method: :get %>
+</div>
