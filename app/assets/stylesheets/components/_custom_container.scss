@@ -11,6 +11,18 @@ $big-mobile: 769px;
   }
 }
 
+.custom-coaches-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px 16px;
+
+  @media screen and (max-width: $big-mobile) {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+
 .custom-padding {
   padding: 24px;
 }
