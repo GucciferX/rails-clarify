@@ -5,6 +5,10 @@ class PatientRecordPolicy < ApplicationPolicy
     end
   end
 
+  def show
+    true
+  end
+
   def create?
     record.user == user
   end

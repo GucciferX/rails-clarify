@@ -2,33 +2,4 @@
 
   <h1>My profile</h1>
 
-  <%if @user.kind == "patient" %>
-    <% if @user.patient_record == nil %>
-      <%= render 'patient_records/new' %>
-    <% else %>
-      <p><%= @user.patient_record.first_name %></p>
-      <p><%= @user.patient_record.last_name %></p>
-      <p><%= @user.email %></p>
-      <p><%= @user.patient_record.phone %></p>
-      <p><%= @user.patient_record.gender %></p>
-      <p><%= @user.patient_record.birth_date %></p>
-      <p><%= @user.patient_record.weight %></p>
-      <p><%= @user.patient_record.height %></p>
-      <p><%= @user.patient_record.description %></p>
-    <% end %>
-  <% else %>
-    <% if @user.coach_record == nil %>
-      <%= render 'coach_records/new' %>
-    <% else %>
-      <p><%= @user.coach_record.first_name %></p>
-      <p><%= @user.coach_record.last_name %></p>
-      <p><%= @user.email %></p>
-      <p><%= @user.coach_record.phone %></p>
-      <p><%= @user.coach_record.certification_number %></p>
-      <p><%= @user.coach_record.specialty %></p>
-      <p><%= @user.coach_record.description %></p>
-      <%= link_to 'Edit', edit_user_path(@user) %> 
-    <% end %>
-  <% end %>
-
 </div>

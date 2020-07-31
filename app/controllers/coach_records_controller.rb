@@ -1,16 +1,23 @@
 class CoachRecordsController < ApplicationController
+  def show
+    @coach_record = CoachRecord.find(params[:id])
+    authorize @coach_record
+  end
+
   def new
-    @record = CoachRecord.new
+    @coach_record = CoachRecord.new
+    authorize @coach_record
   end
 
   def create
-    @record = CoachRecord.new(record_params)
-    @user = User.find(current_user.id)
-    @record.user = @user
-    if @record.save
-      redirect_to users_show_path(@user)
+    @coach_record = CoachRecord.new(record_params)
+    authorize @coach_record
+    @coach_record.user = current_user
+
+    if @coach_record.save
+      redirect_to user_coach_record_path(@coach_record)
     else
-      render "users/show"
+      render new
     end
   end
 
