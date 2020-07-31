@@ -22,9 +22,19 @@ class PatientRecordsController < ApplicationController
   end
 
   def edit
+    @patient_record = PatientRecord.find(params[:id])
+    authorize @patient_record
   end
 
   def update
+    @patient_record = PatientRecord.find(params[:id])
+    authorize @patient_record
+
+    if @patient_record.update(record_params)
+      redirect_to dashboard_path
+    else
+      render :edit
+    end
   end
 
   private

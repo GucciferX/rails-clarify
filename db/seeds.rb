@@ -53,6 +53,7 @@ User.where(kind: "coach").each do |coach|
     certification_number: Faker::DrivingLicence.british_driving_licence,
     specialty: medical_specialties.sample,
     description: Faker::TvShows::BojackHorseman.quote,
+    address: Faker::Address.full_address,
     user_id: coach.id
   )
 end

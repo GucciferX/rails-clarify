@@ -1,11 +1,15 @@
-<h1>Patient Profile</h1>
+<div class="container">
+  <h1>Patient Profile</h1>
 
-<p><%= @patient_record.first_name %></p>
-<p><%= @patient_record.last_name %></p>
-<p><%= @patient_record.user.email %></p>
-<p><%= @patient_record.phone %></p>
-<p><%= @patient_record.gender %></p>
-<p><%= @patient_record.birth_date %></p>
-<p><%= @patient_record.weight %></p>
-<p><%= @patient_record.height %></p>
-<p><%= @patient_record.description %></p>
+  <p><%= @patient_record.first_name %></p>
+  <p><%= @patient_record.last_name %></p>
+  <p><%= @patient_record.user.email %></p>
+  <p><%= @patient_record.phone %></p>
+  <p><%= @patient_record.gender %></p>
+  <p><%= @patient_record.birth_date %></p>
+  <p><%= @patient_record.weight %></p>
+  <p><%= @patient_record.height %></p>
+  <p><%= @patient_record.description %></p>
+
+  <%= button_to 'Edit Profile', edit_patient_record_path(current_user.patient_record.id), method: :get %>
+</div>

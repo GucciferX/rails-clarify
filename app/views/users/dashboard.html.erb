@@ -1,0 +1,10 @@
+<div class="container">
+  <h1><%= "Welcome back #{@user.patient_record.first_name}" %></h1>
+
+  <% @plans.each do |plan| %>
+    <h2><%= plan.name %></h2>
+    <% @consultations.each do |consultation| %>
+      <p><%= consultation.start_time %></p>
+    <% end %>
+  <% end %>
+</div>

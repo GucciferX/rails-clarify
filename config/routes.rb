@@ -1,25 +1,24 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
 
   # No Login User Access
   root to: 'pages#home'
   get '/contact', to: 'pages#contact'
+  get '/dashboard', to: 'users#dashboard', as: 'dashboard'
 
   # Logged in Users
   resources :users, only: [:show] do
-    resources :patient_records, only: [:show, :new, :create, :edit, :update]
-    resources :coach_records, only: [:show, :new, :create, :edit, :update]
+    resources :patient_records, shallow: true
+    resources :coach_records, shallow: true
 
     resources :consultations, shallow: true do
       resources :reviews, only: [:new, :create, :edit, :update]
       resources :consultation_notes, only: [:new, :create, :edit, :update]
     end
-
-    member do
-      get 'dashboard'
-    end
   end
-  # Plans for users
   resources :plans, only: [:index, :show]
 end
