@@ -1,22 +1,28 @@
-<div class="container">
+<div class="container custom-form-spacing">
 
+  <h3 class="text-success"><%= @plan.category.name %></h3>
   <h1><%= @plan.name %> </h1>
-  <h2><%= @plan.category.name %></h2>
   <hr>
   <p><%= @plan.description %></p>
-  <p><%= "#{@plan.duration} months" %></p>
-  <p><%= "#{@plan.number_of_consultations} appointments per week"%></p>
+  <p> <i class="far fa-clock"></i> <%= @plan.duration %> months </p>
+  <p> <i class="far fa-calendar-check"></i> <%= @plan.number_of_consultations%> appointments </p>
   <hr>
   <ul>
-    <% @coaches.each do |coach| %>
-      <li>
-      <%= "#{coach.coach_record.first_name.capitalize} #{coach.coach_record.last_name.capitalize}" %>
-      <%# send to coach profile %>
-      <%= button_to 'See Coach Profile', user_coach_record_path(coach), method: :get %>
-      </li>
-    <% end %>
+    <div class="custom-coaches-container">
+      <% @coaches.each do |coach| %>
+        <li>
+          <div class="card custom-card">
+            <div class="card-body">
+              <h5><%= "#{coach.coach_record.first_name.capitalize} #{coach.coach_record.last_name.capitalize}" %></h5>
+              <%= image_tag "https://source.unsplash.com/collection/1602384/800x400", alt: "alttext", class: "custom-profile-image" %>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <%= button_to 'See Coach Profile', user_path(coach), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </div>
   </ul>
- 
-  <%= button_to 'Book Appointment', new_user_consultation_path(current_user, controller: "consultations"), method: :get, params: { plan: @plan } %>
-  <br>
+
+  <%= button_to 'Book Appointment', new_user_consultation_path(current_user, controller: "consultations"), method: :get, params: { plan: @plan }, class: "btn btn-primary custom-vertical-spacing " %>
 </div>
