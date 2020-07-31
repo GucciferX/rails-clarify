@@ -11,7 +11,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Enroll to a new plan", "#", class: "btn btn-primary m-1" %>
+          <%= link_to "Enroll to a new plan",  plans_path , class: "btn btn-primary m-1" %>
         </li>
         <li class="nav-item">
           <%= link_to "Dashboard", "#", class: "btn btn-primary m-1" %>
@@ -28,9 +28,9 @@
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "btn btn-primary m-1" %>
         </li>
-        <li class="nav-getintouch">
+        <!-- <li class="nav-getintouch"> -->
 <!--           <%= link_to "Sign up", contact_path, class: "btn btn-primary m-1" %> -->
-        </li>
+        <!-- </li> -->
       <% end %>
     </ul>
   </div>
