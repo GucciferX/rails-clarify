@@ -7,8 +7,10 @@
       <h5 class="text-success"><%= coach.coach_record.specialty %></h5>
       <p>Certification # <%= coach.coach_record.certification_number %></p>
       <p><%= coach.coach_record.description %></p>
+      <p><%= "Rating: #{coach.rating}/5.0" %></p>
       <p><i class="fas fa-phone-alt"></i> <%= coach.coach_record.phone %></p>
       <p><i class="far fa-envelope"></i> <%= coach.coach_record.user.email %></p>
+      <p><i class="far fa-compass"></i> <%= coach.coach_record.address %></p>
     <!-- </div> -->
   <!-- </div> -->
 </div>
