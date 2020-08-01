@@ -13,5 +13,19 @@
 
   <p><%= "Address: #{@consultation.coach.coach_record.address}" %></p>
 
-  <%= button_to 'Awesome', '/', method: :get %>
+  <%= button_to 'Got it!', '/dashboard', method: :get %>
+  <br>
+  <% if @consultation.review.present? %>
+    <p><%= "Patient Comment: #{@consultation.review.comment}" %></p>
+    <p><%= "Rating: #{@consultation.review.coach_rating}/5" %></p>
+    <%= button_to 'Edit review', edit_review_path(@consultation.review), method: :get %>
+  <% else %>
+    <%= button_to 'Leave a review', new_consultation_review_path(@consultation), method: :get %>
+  <% end %>
+</div>
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= 'pk.eyJ1IjoiYmVydmVjbyIsImEiOiJja2Jia2FzZzgwMWVuMnJvZGU4bGw1OGFxIn0.9C4KHDmcmZo0Ocn6qQ-Ejg' %>">
 </div>

@@ -1,0 +1,13 @@
+<div class="container">
+  <h1><%= "How was your appointment with coach #{@review.consultation.coach.coach_record.first_name}?" %></h1>
+  <%= simple_form_for @review do |f| %>
+    <%= f.input :comment, as: :text, required: true %>
+    <p>Rate your coach</p>
+    <%= f.collection_radio_buttons :coach_rating, [[5], [4], [3], [2], [1]], :first, :last, required: true, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+      <%= b.radio_button + b.label {''} %>
+    <% end %>
+    <br>
+    <br>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+</div>
