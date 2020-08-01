@@ -35,5 +35,5 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:comment, :coach_rating)
-  end
+  end  
 end
