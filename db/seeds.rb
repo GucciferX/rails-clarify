@@ -10,18 +10,7 @@ Category.destroy_all
 CoachRecord.destroy_all
 PatientRecord.destroy_all
 User.destroy_all
-# User.where.not(email: ["berveco@gmail.com", "main_coach@gmail.com"]).destroy_all
 
-# Code for the user of the coach example
-# super_coach = User.new(
-#   kind: "coach", 
-#   email: "main_coach@gmail.com",
-# )
-# super_coach.password = "Alibaba10"
-# super_coach.password_confirmation = "Alibaba10"
-# super_coach.save!
-
-# Seed 5 coach users
 20.times {
   user = User.new( kind: "coach", email: Faker::Internet.email)
   user.password = Faker::Blockchain::Bitcoin.address
@@ -200,24 +189,6 @@ puts "seeded plans"
 }
 puts "seeded consultations for every patient"
 
-# Seed consultation_notes
-Consultation.all.each do |consultation|
-  new_note = ConsultationNote.new(
-    comment: Faker::TvShows::SouthPark.quote,
-    patient_rating: [1,2,3,4,5].sample
-  )
-  new_note.consultation = consultation
-  new_note.save!
-end
-puts "seeded consultation notes"
-# Consultation.all.each do |consultation|
-#   if consultation.patient.rating.nil?
-#     consultation.patient.rating = consultation.consultation_note.patient_rating
-#   else
-#     consultation.patient.rating = (consultation.patient.rating + consultation.consultation_note.patient_rating).fdiv(Consultation.where(patient: consultation.patient).count)
-#   end
-# end
-
 # Seed reviews
 Consultation.all.each do |consultation|
   new_review = Review.new(
@@ -229,10 +200,13 @@ Consultation.all.each do |consultation|
 end
 puts "seeded reviews"
 
-# Consultation.all.each do |consultation|
-#   if consultation.coach.rating.nil?
-#     consultation.coach.rating = consultation.review.coach_rating
-#   else
-#     consultation.patient.rating = (consultation.patient.rating + consultation.consultation_note.patient_rating).fdiv(Consultation.where(patient: consultation.patient).count)
-#   end
-# end
+# Seed consultation_notes
+Consultation.all.each do |consultation|
+  new_note = ConsultationNote.new(
+    comment: Faker::TvShows::SouthPark.quote,
+    patient_rating: [1,2,3,4,5].sample
+  )
+  new_note.consultation = consultation
+  new_note.save!
+end
+puts "seeded consultation notes"
