@@ -1,3 +1,4 @@
+// Widths
 $big-mobile: 769px;
 $custom-lg: 1188px;
 $custom-md: 881px;
@@ -15,7 +16,6 @@ $custom-sm: 530px;
   }
 }
 
-// PLEASE MAKE ME RESPONSIVE FOR ALL SIZES
 .custom-coaches-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -38,7 +38,7 @@ $custom-sm: 530px;
   }
 }
 
-
+// Custom paddings
 .custom-padding {
   padding: 24px;
 }
@@ -53,7 +53,7 @@ $custom-sm: 530px;
   margin: 0 auto;
 }
 
-// custom-vertical-spacing
+// Custom spacing on the langing planlist
 .custom-landing-spacing {
   margin: 76px auto;
 
@@ -62,6 +62,7 @@ $custom-sm: 530px;
   }
 }
 
+// Custom spacing for pages
 .custom-vertical-spacing {
   margin: 46px auto;
 
