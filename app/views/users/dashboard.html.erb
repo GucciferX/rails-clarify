@@ -1,10 +1,23 @@
 <div class="container custom-vertical-spacing">
   <h1><%= "Welcome back #{@user.patient_record.first_name}" %></h1>
 
-  <% @plans.each do |plan| %>
-    <h2><%= plan.name %></h2>
-    <% @consultations.each do |consultation| %>
-      <p><%= consultation.start_time %></p>
-    <% end %>
+  <% @plans_unique.each do |plan| %>
+    <div class="d-flex">
+      <div>
+        <h2><%= plan.name %></h2>
+        <p><b>Remember your goal!</b></p><p><%= plan.goal_description %></p>
+      </div>
+      <% plan.consultations.each do |consultation| %>
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="card custom-card m-2">
+            <div class="card-body">
+              <h6><%= consultation.start_time.strftime("Date: %A %b %d %r") %></h6>
+              <h6><%= "#{consultation.coach.coach_record.first_name} #{consultation.coach.coach_record.last_name}" %></h6>
+              <%= link_to 'Show Appointment', consultation_path(consultation), method: :get %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>

@@ -12,5 +12,6 @@ class UsersController < ApplicationController
     @consultations.each do |consultation|
       @plans << consultation.plan
     end
+    @plans_unique = @plans.uniq(&:name)
   end
 end
