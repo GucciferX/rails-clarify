@@ -1,4 +1,5 @@
 require 'faker'
+require 'open-uri'
 
 # Clean db
 Review.destroy_all
@@ -43,7 +44,16 @@ coach_addresses = [
 ]
 
 User.where(kind: "coach").each do |coach|
-  CoachRecord.create(
+  random_face_url = 'https://source.unsplash.com/random?faces'
+  final_url       = ''
+
+  open(random_face_url) do |resp|
+    final_url = resp.base_uri.to_s
+  end
+
+  face_file = URI.open(final_url)
+
+  coach_record = CoachRecord.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Artist.name,
     phone: Faker::PhoneNumber.phone_number,
@@ -53,6 +63,14 @@ User.where(kind: "coach").each do |coach|
     address: coach_addresses.sample,
     user_id: coach.id
   )
+
+  coach_record.profile_picture.attach(
+    io: face_file,
+    filename: 'nes.png',
+    content_type: 'image/png'
+  )
+
+  coach_record.save
 end
 puts 'seeded coach_records to coaches'
 
@@ -63,7 +81,16 @@ medical_conditions = ['Diabetes', 'Hypertension', 'Ischemic Heart Disease',
   'Arthritis', 'Asthma', 'Ostheoporosis', 'Lung Cancer']
 
 User.where(kind: "patient").each do |patient|
-  PatientRecord.create(
+  random_face_url = 'https://source.unsplash.com/random?faces'
+  final_url       = ''
+
+  open(random_face_url) do |resp|
+    final_url = resp.base_uri.to_s
+  end
+
+  face_file = URI.open(final_url)
+
+  patient_record = PatientRecord.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     phone: Faker::PhoneNumber.phone_number,
@@ -75,6 +102,14 @@ User.where(kind: "patient").each do |patient|
     medical_condition: medical_conditions.sample,
     user_id: patient.id
   )
+
+  patient_record.profile_picture.attach(
+    io: face_file,
+    filename: 'nes.png',
+    content_type: 'image/png'
+  )
+
+  patient_record.save
 end
 puts 'seeded patient_records to patients'
 
