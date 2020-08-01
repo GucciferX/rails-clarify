@@ -37,7 +37,8 @@ $big-mobile: 769px;
   margin: 0 auto;
 }
 
-.custom-vertical-spacing {
+// custom-vertical-spacing
+.custom-landing-spacing {
   margin: 76px auto;
 
    @media screen and (max-width: $big-mobile) {
@@ -45,7 +46,7 @@ $big-mobile: 769px;
   }
 }
 
-.custom-form-spacing {
+.custom-vertical-spacing {
   margin: 46px auto;
 
    @media screen and (max-width: $big-mobile) {
