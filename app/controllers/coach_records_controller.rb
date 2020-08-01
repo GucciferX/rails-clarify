@@ -22,14 +22,24 @@ class CoachRecordsController < ApplicationController
   end
 
   def edit
+    @coach_record = CoachRecord.find(params[:id])
+    authorize @coach_record
   end
 
   def update
+    @coach_record = CoachRecord.find(params[:id])
+    authorize @coach_record
+
+    if @coach_record.update(record_params)
+      redirect_to dashboard_path
+    else
+      render :edit
+    end
   end
 
   private
 
   def record_params
-    params.require(:record).permit(:first_name, :last_name, :certification_number, :description, :phone)
+    params.require(:coach_record).permit(:first_name, :last_name, :certification_number, :description, :phone, :address)
   end
 end
