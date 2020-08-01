@@ -6,7 +6,7 @@ class ConsultationPolicy < ApplicationPolicy
   end
 
   def show?
-    record.patient == user || user.coaches.includes?(record.patient)
+    record.patient == user || record.coach == user
   end
 
   def new?

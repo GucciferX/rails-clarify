@@ -7,7 +7,7 @@
         <h2><%= plan.name %></h2>
         <p><b>Remember your goal!</b></p><p><%= plan.goal_description %></p>
       </div>
-      <% plan.consultations.each do |consultation| %>
+      <% @consultations.where(plan: plan).each do |consultation| %>
         <div class="d-flex align-items-center justify-content-between">
           <div class="card custom-card m-2">
             <div class="card-body">

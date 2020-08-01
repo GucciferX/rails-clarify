@@ -228,3 +228,11 @@ Consultation.all.each do |consultation|
   new_review.save!
 end
 puts "seeded reviews"
+
+# Consultation.all.each do |consultation|
+#   if consultation.coach.rating.nil?
+#     consultation.coach.rating = consultation.review.coach_rating
+#   else
+#     consultation.patient.rating = (consultation.patient.rating + consultation.consultation_note.patient_rating).fdiv(Consultation.where(patient: consultation.patient).count)
+#   end
+# end
