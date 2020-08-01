@@ -24,15 +24,15 @@
               <!-- historico -->
               <!-- <%= button_to 'See Coach Profile', coach_record_path(coach.coach_record.id), method: :get, class: "btn btn-primary" %>  -->
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#coach<%= coach.id %> '>
                 See Coach Profile
               </button>
 
-              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal fade" id="coach<%= coach.id %>" tabindex="-1" role="dialog" aria-labelledby="coach<%= coach.id %>CenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                   <div class="modal-content custom-padding-sm">
                     <div class="modal-header custom-modal-header">
-                      <h4 class="modal-title" id="exampleModalLongTitle">
+                      <h4 class="modal-title" id="coach<%= coach.id %>LongTitle">
 
                         <%= "#{coach.coach_record.first_name} #{coach.coach_record.last_name}" %>
 
