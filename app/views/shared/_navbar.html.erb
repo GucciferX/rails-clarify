@@ -10,11 +10,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "New Plan Enroll",  plans_path , class: "btn btn-primary m-1" %>
-        </li>
         <li class="nav-item">
           <%= link_to "Dashboard", "/dashboard", class: "btn btn-primary m-1" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Enroll to a new plan",  plans_path , class: "btn btn-primary m-1" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

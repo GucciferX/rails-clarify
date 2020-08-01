@@ -5,7 +5,7 @@
         <%= image_tag "https://source.unsplash.com/collection/779536/1000x700", alt: "alttext", class: "custom-card-image"  %>
         <div class="card-body">
           <h5 class="card-title"><%= plan.name %></h5>
-          <p class="card-text"><%= plan.description %></p>
+          <p class="card-text"><%=h truncate(plan.description, length: 200) %></p>
           <% if user_signed_in? %>
             <%= link_to "Go to plan", plan_path(plan), class: "btn btn-primary" %>
           <% else %>
@@ -14,21 +14,19 @@
             </button>
 
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content custom-modal custom-padding-sm">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content custom-padding-sm">
                   <div class="modal-header custom-modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle"><%= plan.name %></h5>
+                    <h4 class="modal-title" id="exampleModalLongTitle"><%= plan.name %></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <div class="d-flex">
-                      <%= image_tag "https://source.unsplash.com/collection/631011", alt: "alttext",  style: 'width:35%; object-fit:cover;' %>
-                      <div class="custom-padding">
-                        <p> <%= plan.description.capitalize %> </p>
-                        <p> <%= plan.goal_description %> </p>
-                      </div>
+                    <div>
+                      <p> <%= plan.description.capitalize %> </p>
+                      <h5 class="text-success"> Goal description: </h5>
+                      <p> <%= plan.goal_description %> </p>
                     </div>
                   </div>
                 </div>

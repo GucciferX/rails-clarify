@@ -1,7 +1,13 @@
+.navbar-fixed{
+ display: fixed;
+  // 76
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   align-items: center;
   background: $secondary-purple;
+
 }
 
 .navbar-lewagon .navbar-collapse {

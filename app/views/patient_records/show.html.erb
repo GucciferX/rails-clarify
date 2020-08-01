@@ -1,15 +1,15 @@
-<div class="container">
-  <h1>Patient Profile</h1>
+<div class="container custom-vertical-spacing">
+  <h2 class="text-success">Medical records</h2>
+  <div class="card custom-card-static custom-padding">
+    <p>Name: <%= "#{@patient_record.first_name} #{@patient_record.last_name}" %></p>
+    <p>Birth date: <%= @patient_record.birth_date %></p>
+    <p>Gender: <%= @patient_record.gender %></p>
+    <p>Weight: <%= @patient_record.weight %></p>
+    <p>Height: <%= @patient_record.height %></p>
+    <p>Description: <%= @patient_record.description %></p>
+    <p><i class="fas fa-phone-alt"></i> <%= @patient_record.phone %></p>
+    <p><i class="far fa-envelope"></i> <%= @patient_record.user.email %></p>
+  </div>
 
-  <p><%= @patient_record.first_name %></p>
-  <p><%= @patient_record.last_name %></p>
-  <p><%= @patient_record.user.email %></p>
-  <p><%= @patient_record.phone %></p>
-  <p><%= @patient_record.gender %></p>
-  <p><%= @patient_record.birth_date %></p>
-  <p><%= @patient_record.weight %></p>
-  <p><%= @patient_record.height %></p>
-  <p><%= @patient_record.description %></p>
-
-  <%= button_to 'Edit Profile', edit_patient_record_path(current_user.patient_record.id), method: :get %>
+  <%= button_to 'Edit Profile', edit_patient_record_path(current_user.patient_record.id), method: :get, class: "btn btn-primary custom-vertical-spacing" %>
 </div>
