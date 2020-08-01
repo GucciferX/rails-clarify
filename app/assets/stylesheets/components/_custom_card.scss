@@ -1,11 +1,11 @@
-.custom-card, .custom-card-static {
+.custom-card, .custom-card-static, .custom-card-appointments {
   border-radius: 8px;
   border: none;
   box-shadow: 6px 6px 6px $sienna;
   transition: 250ms ease-in-out;
 }
 
-.custom-card {
+.custom-card, .custom-card-appointments {
   // drop-shadow: 8px, 8px, 8px, rgba(34, 28, 59, 0.7);
   &:hover {
     box-shadow: 6px 6px 6px $sienna-active;
@@ -20,3 +20,14 @@
     box-shadow: 6px 6px 6px $sienna-active;
   }
 }
+
+// Related to custom card appointments
+.custom-description-dashboard {
+  flex-basis: 35%;
+}
+
+.custom-card-appointments {
+  background-color: #eee;
+  width: 100%;
+}
+
