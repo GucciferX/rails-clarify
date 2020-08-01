@@ -6,6 +6,8 @@ class ConsultationsController < ApplicationController
   def show
     @consultation = Consultation.find(params[:id])
     authorize @consultation
+
+    @markers = [{ lng: @consultation.coach.coach_record.longitude, lat: @consultation.coach.coach_record.latitude }]
   end
 
   def new
@@ -24,7 +26,7 @@ class ConsultationsController < ApplicationController
     if @consultation.save
       redirect_to @consultation
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -34,13 +36,13 @@ class ConsultationsController < ApplicationController
   end
 
   def update
-    @consultation = Consultation.edit(consultation_params)
+    @consultation = Consultation.find(params[:id])
     authorize @consultation
 
-    if @consultation.save
+    if @consultation.update(consultation_params)
       redirect_to consultation_path(@consultation)
     else
-      render 'new'
+      render :edit
     end
   end
 
