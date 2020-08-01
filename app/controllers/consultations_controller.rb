@@ -19,7 +19,7 @@ class ConsultationsController < ApplicationController
     @consultation = Consultation.new(consultation_params)
     @consultation.end_time = (@consultation.start_time.to_time + 1.hours).to_datetime
     @consultation.patient = current_user
-    @consultation.coach = User.find(params[:consultation][:coach_id][1])
+    @consultation.coach = User.find(params[:consultation][:coach_id])
     authorize @consultation
     if @consultation.save
       redirect_to @consultation
