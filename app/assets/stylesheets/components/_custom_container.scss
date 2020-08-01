@@ -1,4 +1,8 @@
 $big-mobile: 769px;
+$custom-lg: 1188px;
+$custom-md: 881px;
+$custom-sm: 530px;
+
 
 .custom-plans-container {
   display: grid;
@@ -11,14 +15,26 @@ $big-mobile: 769px;
   }
 }
 
+// PLEASE MAKE ME RESPONSIVE FOR ALL SIZES
 .custom-coaches-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 16px 16px;
 
-  @media screen and (max-width: $big-mobile) {
+  @media screen and (max-width: $custom-lg) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+   @media screen and (max-width: $custom-md) {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+  }
+
+   @media screen and (max-width: $custom-sm) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+
   }
 }
 
