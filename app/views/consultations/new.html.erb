@@ -8,7 +8,7 @@
 
     <%= simple_form_for [current_user, @consultation] do |f| %>
       <%= f.input :start_time, as: :datetime, order: [:day, :month, :year] %>
-      <%= f.input :coach_id, as: :check_boxes, collection: coach_names %>
+      <%= f.input :coach_id, as: :radio_buttons, collection: coach_names, class: 'form-control' %>
       <%= f.button :submit, "Schedule", class: "btn btn-primary" %>
       <%= f.input :plan_id, as: :hidden, input_html: { value: @plan.id } %>
     <% end %>
