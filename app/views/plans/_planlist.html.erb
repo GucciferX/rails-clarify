@@ -1,6 +1,6 @@
 <div class="container">
   <div class="custom-plans-container">
-    <% @plans.first(12).each do |plan| %>
+    <% @plans.each do |plan| %>
       <div class="card custom-card">
         <%= image_tag "https://source.unsplash.com/collection/779536/1000x700", alt: "alttext", class: "custom-card-image"  %>
         <div class="card-body">
