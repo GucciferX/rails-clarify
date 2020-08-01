@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="custom-eigth-container">
+  <div class="custom-eigth-container custom-form-spacing">
     <h2>Please fill the following information</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -27,7 +27,7 @@
   <div class="custom-eigth-container custom-form-spacing">
     <%= render "devise/shared/links" %>
   </div>
-  
+
   <h1>Fill in your info</h1>
   <%= simple_form_for [current_user, @patient_record] do |f| %>
     <%= f.input :first_name %>
