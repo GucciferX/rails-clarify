@@ -9,15 +9,15 @@
           <% if user_signed_in? %>
             <%= link_to "Go to plan", plan_path(plan), class: "btn btn-primary" %>
           <% else %>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#plan<%= plan.id %>' >
               View plan
             </button>
 
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id='plan<%= plan.id %>' tabindex="-1" role="dialog" aria-labelledby="plan<%= plan.id %>CenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content custom-padding-sm">
                   <div class="modal-header custom-modal-header">
-                    <h4 class="modal-title" id="exampleModalLongTitle"><%= plan.name %></h4>
+                    <h4 class="modal-title" id="plan<%= plan.id %>LongTitle"><%= plan.name %></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>

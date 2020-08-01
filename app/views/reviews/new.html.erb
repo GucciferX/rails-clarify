@@ -1,11 +1,12 @@
-<div class="container">
+<div class="container custom-vertical-spacing">
   <h1><%= "How was your appointment with coach #{Consultation.find(params[:consultation_id]).coach.coach_record.first_name}?" %></h1>
   <%= simple_form_for [Consultation.find(params[:consultation_id]), @review] do |f| %>
     <%= f.input :comment, as: :text, required: true %>
     <p>Rate your coach</p>
-    <%= f.collection_radio_buttons :coach_rating, [[5], [4], [3], [2], [1]], :first, :last, required: true, item_wrapper_tag: false, boolean_style: :inline do |b| %>
-      <%= b.radio_button + b.label {''} %>
-    <% end %>
+    <!-- <%= f.collection_radio_buttons :coach_rating, [[5], [4], [3], [2], [1]], :first, :last, required: true, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+      <%= b.radio_button + b.label {'1'} %>
+    <% end %> -->
+    <%= f.input :coach_rating, collection: 0..5 %>
     <br>
     <br>
     <%= f.submit "Submit review", class: "btn btn-primary" %>
