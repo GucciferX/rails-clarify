@@ -1,6 +1,9 @@
 class CoachRecord < ApplicationRecord
   belongs_to :user
 
+  # Cloudinary association
+  has_one_attached :profile_picture
+
   geocoded_by :address
   after_validation :geocode, if: ->(obj) { obj.address.present? && obj.address_changed? }
 

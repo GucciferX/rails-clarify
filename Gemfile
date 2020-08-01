@@ -40,6 +40,8 @@ gem 'simple_form'
 
 # API for Maps based on Address and Coordinates
 gem 'geocoder'
+# Cloudinary for image processing
+gem 'cloudinary'
 
 group :development, :test do
   gem 'pry-byebug'
