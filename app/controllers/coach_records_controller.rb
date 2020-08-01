@@ -40,6 +40,7 @@ class CoachRecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:coach_record).permit(:first_name, :last_name, :certification_number, :description, :phone, :address)
+    params.require(:coach_record).permit(:first_name, :last_name,
+    :certification_number, :description, :phone, :address, :profile_picture)
   end
 end

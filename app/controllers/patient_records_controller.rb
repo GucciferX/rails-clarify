@@ -41,6 +41,6 @@ class PatientRecordsController < ApplicationController
 
   def record_params
     params.require(:patient_record).permit(:first_name, :last_name, :gender, :birth_date,
-                                           :weight, :height, :medical_condition, :description, :phone)
+                                           :weight, :height, :medical_condition, :description, :phone, :profile_picture)
   end
 end

@@ -17,7 +17,21 @@
           <%= link_to "Enroll to a new plan",  plans_path , class: "btn btn-primary m-1" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.kind == 'patient' %>
+              <% if current_user.patient_record.profile_picture.attached? %>
+                <%= cl_image_tag current_user.patient_record.profile_picture.key, alt: "Profile picture", class: "avatar dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "https://st2.depositphotos.com/4111759/12123/v/950/depositphotos_121232794-stock-illustration-male-default-placeholder-avatar-profile.jpg", class: "avatar dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
+          <% else %>
+              <% if current_user.coach_record.profile_picture.attached? %>
+                <%= cl_image_tag current_user.coach_record.profile_picture.key, alt: "Profile picture", class: "avatar dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "https://st2.depositphotos.com/4111759/12123/v/950/depositphotos_121232794-stock-illustration-male-default-placeholder-avatar-profile.jpg", class: "avatar dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
+          <% end %>
+
+
           <div class="dropdown-menu dropdown-menu-right custom-card" aria-labelledby="navbarDropdown">
             <% if current_user.kind == 'patient' %>
               <% route = patient_record_path(current_user.patient_record) %>

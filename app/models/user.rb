@@ -30,4 +30,5 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :patient_record, :coach_record
 
   validates :email, presence: true, uniqueness: true
+
 end

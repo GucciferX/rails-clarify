@@ -14,7 +14,11 @@
           <div class="card custom-card">
             <div class="card-body">
               <h5><%= "#{coach.coach_record.first_name.capitalize} #{coach.coach_record.last_name.capitalize}" %></h5>
-              <%= image_tag "https://source.unsplash.com/collection/1602384/800x400", alt: "alttext", class: "avatar-square"%>
+              <% if coach.coach_record.profile_picture.attached? %>
+                <%= cl_image_tag coach.coach_record.profile_picture.key, alt: "Profile picture", class: "avatar-square dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "https://st2.depositphotos.com/4111759/12123/v/950/depositphotos_121232794-stock-illustration-male-default-placeholder-avatar-profile.jpg", class: "avatar dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
               <p class="text-suc"><%= coach.coach_record.specialty %></p>
               <p><%=h truncate(coach.coach_record.description, length: 40) %></p>
               <!-- historico -->
