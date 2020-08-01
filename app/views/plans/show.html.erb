@@ -14,9 +14,9 @@
           <div class="card custom-card">
             <div class="card-body">
               <h5><%= "#{coach.coach_record.first_name.capitalize} #{coach.coach_record.last_name.capitalize}" %></h5>
-              <%= image_tag "https://source.unsplash.com/collection/1602384/800x400", alt: "alttext", class: "custom-profile-image" %>
+              <%= image_tag "https://source.unsplash.com/collection/1602384/800x400", alt: "alttext", class: "custom-profile-image"%>
                 <p class="text-suc"><%= coach.coach_record.specialty %></p>
-                <p><%=h truncate(coach.coach_record.description, :length => 40) %></p>
+                <p><%=h truncate(coach.coach_record.description, length: 40) %></p>
               <%= button_to 'See Coach Profile', coach_record_path(coach.coach_record.id), method: :get, class: "btn btn-primary" %>
             </div>
           </div>
