@@ -4,9 +4,9 @@
     <%= simple_form_for @patient_record do |f| %>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
-      <%= f.input :phone %>
-      <%= f.input :gender %>
-      <%= f.input :birth_date %>
+      <%= f.input :phone, as: :tel %>
+      <%= f.input :gender, as: :radio_buttons, collection: [['0', 'Female'], ['1', 'Male'], ['2', 'Non-binary']], label_method: :second, value_method: :first, as: :select %>
+      <%= f.input :birth_date, as: :date, order: [:day, :month, :year], start_year: Date.today.year - 90, end_year: Date.today.year %>
       <%= f.input :weight %>
       <%= f.input :height %>
       <%= f.input :medical_condition %>
