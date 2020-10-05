@@ -1,9 +1,14 @@
 <div class="container custom-vertical-spacing">
+  <% if @plans_unique.empty? %>
+    <div class="container-dashborad-empty">
+      <div>
+        <h1><%= "Welcome #{@user.patient_record.first_name}!" %></h1>
+      </div>
+      <%= link_to "Subscribe to a plan", plans_path, method: :get, class: "btn btn-primary btn-dashboard" %>
+    </div>
+  <% else %>
   <h1><%= "Welcome #{@user.patient_record.first_name}!" %></h1>
   <div class="custom-user-plans">
-    <% if @plans_unique.empty? %>
-      <%= link_to "Subscribe to a plan", plans_path, method: :get, class: "btn btn-primary" %>
-    <% else %>
       <% @plans_unique.each do |plan| %>
         <div class="card custom-card-static custom-padding d-flex flex-row">
           <div class="custom-description-dashboard">

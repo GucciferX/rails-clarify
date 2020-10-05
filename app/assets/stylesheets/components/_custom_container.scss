@@ -68,6 +68,16 @@ $custom-sm: 530px;
   }
 }
 
+.container-dashborad-empty {
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &:last-child {
+    margin-top: 20px;
+  }
+}
 // Custom spacing for pages
 .custom-vertical-spacing {
   margin: 46px auto;
