@@ -2,6 +2,7 @@
   <div class="custom-plans-container">
     <% @plans.each do |plan| %>
       <div class="card custom-card">
+        <!-- <%= image_tag "https://picsum.photos/1000/700", alt: "alttext", class: "custom-card-image"  %> -->
         <%= image_tag "https://source.unsplash.com/collection/779536/1000x700", alt: "alttext", class: "custom-card-image"  %>
         <div class="card-body">
           <h5 class="card-title"><%= plan.name %></h5>
