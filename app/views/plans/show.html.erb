@@ -9,7 +9,8 @@
   <hr>
   <ul>
     <div class="custom-coaches-container">
-      <% @coaches.each do |coach| %>
+      <% @coaches.each_with_index do |coach, index| %>
+        <% coach_pictures = [ 'coach_1_ijvlgq', 'coach_2_de5ci2', 'coach_3_lfommq', 'coach_4_wknahr', 'coach_5_hkjpgt', 'coach_6_jwit9j', 'coach_7_lr6pbi', 'coach_8_u8tuq7', 'coach_9_lldapq', 'coach_10_asltiy', 'coach_11_cekvcs', 'coach_12_j2bvso', 'coach_13_grpqwi', 'coach_14_ib9rhe', 'coach_15_qrquwu', 'coach_16_hmtdac'] %>
         <li>
           <div class="card custom-card">
             <div class="card-body">
@@ -17,7 +18,7 @@
               <% if coach.coach_record.profile_picture.attached? %>
                 <%= cl_image_tag coach.coach_record.profile_picture.key, alt: "Profile picture", class: "avatar-square dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% else %>
-                <%= image_tag "https://st2.depositphotos.com/4111759/12123/v/950/depositphotos_121232794-stock-illustration-male-default-placeholder-avatar-profile.jpg", class: "avatar-square dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <%= cl_image_tag(coach_pictures[index] , class: "avatar-square dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
               <% end %>
               <p class="text-suc"><%= coach.coach_record.specialty %></p>
               <p><%=h truncate(coach.coach_record.description, length: 40) %></p>
