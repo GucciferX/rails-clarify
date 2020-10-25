@@ -1,10 +1,3 @@
-// Widths
-$big-mobile: 769px;
-$custom-lg: 1188px;
-$custom-md: 881px;
-$custom-sm: 530px;
-
-
 .custom-plans-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -16,6 +9,13 @@ $custom-sm: 530px;
   }
 }
 
+.custom-container-home {
+  position: relative;
+  top: 72px;
+  height: calc(100vh - 72px);
+  border: 3px solid red;
+
+}
 .custom-user-plans {
   display: grid;
   grid-template-columns: 1fr;
@@ -61,11 +61,11 @@ $custom-sm: 530px;
 
 // Custom spacing on the langing planlist
 .custom-landing-spacing {
-  margin: 76px auto;
+  // margin: 76px auto;
 
-   @media screen and (max-width: $big-mobile) {
-    margin: 88px auto;
-  }
+  //  @media screen and (max-width: $big-mobile) {
+  //   margin: 88px auto;
+  // }
 }
 
 .container-dashborad-empty {
