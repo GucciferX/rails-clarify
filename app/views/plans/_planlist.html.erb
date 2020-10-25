@@ -6,7 +6,7 @@
         <%= cl_image_tag(plan_pictures[index], transformation: { dpr: "auto", responsive: true, width: "auto", height: 310, crop: "fit"}) %>
         <div class="card-body">
           <h5 class="card-title"><%= plan.name %></h5>
-          <p class="card-text"><%=h truncate(plan.description, length: 200) %></p>
+          <p class="card-text"><%=h truncate(plan.description, length: 90) %></p>
           <% if user_signed_in? %>
             <%= link_to "Go to plan", plan_path(plan), class: "btn btn-primary" %>
           <% else %>

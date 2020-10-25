@@ -1,21 +1,27 @@
+<% unless user_signed_in?  %>
 <div class="jumbotron jumbotron-fluid banner-jumbotron">
-  <div class="container custom-eigth-container">
-      <div class="banner-hero">
-        <h1 >Take care of your body & mind from home</h1>
-        <div class="card custom-card-static custom-padding">
-          <p>Clarity pairs you 1:1 with a health coach. Your health coach will create a personalized plan that will help you achieve your health goals.</p>
-          <% if user_signed_in? %>
-            <%  %>
-          <% else %>
-            <p class="text-left">
-              <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
-            </p>
-          <% end %>
+    <div class="container custom-eigth-container">
+        <div class="banner-hero">
+          <h1 >Take care of your body & mind from home</h1>
+          <div class="card custom-card-static custom-padding">
+            <p>Clarity pairs you 1:1 with a health coach. Your health coach will create a personalized plan that will help you achieve your health goals.</p>
+            <% if user_signed_in? %>
+              <%  %>
+            <% else %>
+              <p class="text-left">
+                <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
+              </p>
+            <% end %>
+          </div>
         </div>
-      </div>
-  </div>
+    </div>
 </div>
+<% end %>
 <div class="container custom-landing-spacing">
-  <h2>Get to know some of our plans</h2>
+  <% if user_signed_in? %>
+    <h2>Enroll in one our plans</h2>
+  <% else %>
+    <h2>Get to know some of our plans</h2>
+  <% end %>
   <%= render "plans/planlist", plans: @plans  %>
 </div>
