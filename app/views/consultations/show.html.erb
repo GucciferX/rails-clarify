@@ -6,9 +6,9 @@
     <div class="card custom-card-static custom-padding custom-card-consultation-show mb-4">
 
       <h2>Appointment Details</h2>
-      <div class="d-flex flex-row">
-        <p style="font-weight: bold;"><%= "Schedule: #{@consultation.start_time.strftime("%A %b %d %T")} to #{@consultation.end_time.strftime("%T")}" %></p>
-        <p class="ml-3" style="font-weight: bold;">Duration: 1 hour - Please be present 15 min. before the appointment</p>
+      <div class="card-appointment-details">
+        <p><%= "Schedule: #{@consultation.start_time.strftime("%A %b %d %T")} to #{@consultation.end_time.strftime("%T")}"%></p>
+        <p>Duration: 1 hour - Please be present 15 min. before the appointment</p>
       </div>
       <div class="mt-3">
         <h4 class="text-success"><%= "#{@consultation.plan.name} Plan" %></h4>

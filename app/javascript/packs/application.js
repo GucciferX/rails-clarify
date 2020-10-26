@@ -32,3 +32,5 @@ import { initMapbox } from './map';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
 });
+
+// Responsiveness

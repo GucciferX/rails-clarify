@@ -34,3 +34,54 @@
 .custom-card-consultation-show {
   width: 100%;
 }
+
+.card-dashboard {
+  @media screen and (min-width: $custom-sm) {
+
+  }
+
+  @media screen and (min-width: $custom-md) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.card-appointment {
+  @media screen and (min-width: $custom-md) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.card-appointment-details {
+
+  @media screen and (min-width: $custom-sm) {
+    display: flex;
+    flex-direction: row;
+  }
+
+  p {
+    font-weight: bold;
+  }
+
+  &:last-child {
+    @media screen and (min-width: $custom-sm) {
+      margin-left: 1rem;
+    }
+  }
+}
+
+
+
+
+
+
+
+  // @media screen and (min-width: $custom-sm) {
+  // }
+
+  // @media screen and (min-width: $custom-md) {
+  // }
+
+  // @media screen and (min-width: $custom-lg) {
+  // }
