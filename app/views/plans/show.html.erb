@@ -7,56 +7,7 @@
   <p><i class="far fa-clock"></i> <%= @plan.duration %> months </p>
   <p><i class="far fa-calendar-check"></i> <%= @plan.number_of_consultations%> appointments </p>
   <hr>
-  <ul>
-    <div class="custom-coaches-container">
-      <% @coaches.each_with_index do |coach, index| %>
-        <% coach_pictures = [ 'coach_1_ijvlgq', 'coach_2_de5ci2', 'coach_3_lfommq', 'coach_4_wknahr', 'coach_5_hkjpgt', 'coach_6_jwit9j', 'coach_7_lr6pbi', 'coach_8_u8tuq7', 'coach_9_lldapq', 'coach_10_asltiy', 'coach_11_cekvcs', 'coach_12_j2bvso', 'coach_13_grpqwi', 'coach_14_ib9rhe', 'coach_15_qrquwu', 'coach_16_hmtdac'] %>
-        <li>
-          <div class="card custom-card">
-            <div class="card-body">
-              <h5><%= "#{coach.coach_record.first_name.capitalize} #{coach.coach_record.last_name.capitalize}" %></h5>
-              <% if coach.coach_record.profile_picture.attached? %>
-                <%= cl_image_tag coach.coach_record.profile_picture.key, alt: "Profile picture", class: "avatar-square dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% else %>
-                <%= cl_image_tag(coach_pictures[index] , class: "avatar-square dropdown-toggle m-1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
-              <% end %>
-              <p class="text-suc"><%= coach.coach_record.specialty %></p>
-              <p><%=h truncate(coach.coach_record.description, length: 40) %></p>
-              <!-- historico -->
-              <!-- <%= button_to 'See Coach Profile', coach_record_path(coach.coach_record.id), method: :get, class: "btn btn-primary" %>  -->
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#coach<%= coach.id %> '>
-                See Coach Profile
-              </button>
-
-              <div class="modal fade" id="coach<%= coach.id %>" tabindex="-1" role="dialog" aria-labelledby="coach<%= coach.id %>CenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-                  <div class="modal-content custom-padding-sm">
-                    <div class="modal-header custom-modal-header">
-                      <h4 class="modal-title" id="coach<%= coach.id %>LongTitle">
-
-                        <%= "#{coach.coach_record.first_name} #{coach.coach_record.last_name}" %>
-
-                      </h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div>
-                        <%= render "coach_records/show", coach: coach %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </li>
-      <% end %>
-    </div>
-  </ul>
 
   <%= button_to 'Book Appointment', new_user_consultation_path(current_user, controller: "consultations"), method: :get, params: { plan: @plan }, class: "btn btn-primary custom-vertical-spacing " %>
 </div>

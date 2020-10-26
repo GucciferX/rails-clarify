@@ -1,12 +1,53 @@
-
 .banner-jumbotron {
-    background-image: linear-gradient(to top, rgba(245, 246, 252, 0.15), rgba(39, 23, 43, 0.52)),
-      url('https://source.unsplash.com/HJmxky8Fvmo/1600x900');
-    background-size: cover;
-    color: #fff;
+  background-image: linear-gradient(to top, rgba(245, 246, 252, 0.15), rgba(39, 23, 43, 0.52)),
+    url('https://source.unsplash.com/HJmxky8Fvmo/1600x900');
+  background-size: cover;
+  color: #fff;
+  height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+
+  @media screen and (min-width: $custom-sm) {
+    padding: 48px 0;
+  }
+
+   @media screen and (min-width: $custom-md) {
+    padding: 56px 0;
+  }
+
+   @media screen and (min-width: $custom-lg) {
+    padding: 64px 0;
+  }
 }
 
 .banner-hero {
   position: relative;
-  top: 100px;
+
+  padding: 0;
+
+  h1 {
+    font-weight: 300;
+    font-size: 20pt;
+    color: white;
+  }
+
+  @media screen and (min-width: $custom-sm) {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+   @media screen and (min-width: $custom-md) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+   @media screen and (min-width: $custom-lg) {
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
 }
+
